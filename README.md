@@ -1,208 +1,46 @@
-# 👋 Hi, I'm Nadavaluru Sashank
+# Image Encryption & Decryption using AES
 
-### 🚀 Data Analyst | Python Developer | Data Scientist | Software Analyst
+A Python desktop application that encrypts an image with **AES-256** and restores it exactly on decryption. Built with a PyQt5 GUI so a user can pick an image, enter a key, and get back an encrypted cipher file (or the original image from one).
 
-Passionate about transforming data into actionable insights and building intelligent software solutions using Python, Machine Learning, and Automation. I enjoy solving real-world problems through technology and continuously improving my skills in AI, Data Science, and Cloud Computing.
+## How it works
 
----
+1. The selected image is read and Base64-encoded.
+2. The user's key is hashed with **SHA-256** to produce a 256-bit AES key.
+3. The data is padded and encrypted in **CBC mode** with a fresh random IV, which is prepended to the ciphertext.
+4. The result is written to `cipher.txt`.
+5. Decryption reads the IV back, decrypts with the same key, removes the padding and writes the original image back out as `decryptedImage.png`, with no loss.
 
-# 🌍 About Me
+## Project structure
 
-* 🎓 Electronics & Communication Engineering Graduate from Panimalar Engineering College
-* 📍 Currently based in Paris
-* 💼 Former Data Scientist at Telyport
-* 📊 Internship experience in Data Science at Rubixe
-* 💡 Interested in Artificial Intelligence, Data Science, Software Development, and Automation
-* 🌱 Continuously learning modern technologies and industry tools
-* 🎯 Aspiring to work in innovative global companies and contribute to impactful AI-driven solutions
+```
+Image-Encryption-using-AES-master/
+├── main.py         # PyQt5 GUI: choose file, enter key, encrypt / decrypt
+├── AESCipher.py    # AES-256-CBC wrapper (SHA-256 key derivation, padding, IV)
+├── Encrypter.py    # Image -> encrypted cipher text
+├── Decrypter.py    # Cipher text -> original image
+├── ui.ui, ui_2.ui  # Qt Designer layouts for the two windows
+└── IMAGE_ENCRYPTION_AND_DECRYPTION_USING_AE.pdf   # Project report
+```
 
----
+## Tech stack
 
-# 🛠️ Technical Skills
+Python 3 · PyCryptodome · Pillow · PyQt5
 
-## 📊 Data Analytics & Visualization
+## Run it
 
-* Python
-* Pandas
-* NumPy
-* SQL
-* Data Cleaning
-* Data Visualization
-* Power BI
-* Exploratory Data Analysis (EDA)
+```bash
+git clone https://github.com/NadavaluruSashank/Image-Encryption-Using-AES-Master.git
+cd Image-Encryption-Using-AES-Master/Image-Encryption-using-AES-master
+pip install pycryptodome pillow pyqt5
+python main.py
+```
 
-## 🤖 Machine Learning & AI
+## Possible improvements
 
-* Scikit-Learn
-* Predictive Modeling
-* Reinforcement Learning
-* OpenAI Gym
-* Machine Learning Algorithms
-* Model Evaluation
+- Switch from CBC to an authenticated mode (AES-GCM) so tampered files are detected.
+- Use a proper key-derivation function (PBKDF2 / scrypt with a salt) instead of a single SHA-256 hash of the password.
+- Let the user choose where to save the cipher file instead of always writing `cipher.txt`.
 
-## 💻 Software Development
+## Report
 
-* Flask
-* REST APIs
-* Automation Scripts
-* Object-Oriented Programming
-* Python Development
-* Software Analysis
-
-## 🗄️ Databases
-
-* MySQL
-* MongoDB
-
-## ⚙️ Tools & Platforms
-
-* Git
-* GitHub
-* Jupyter Notebook
-* VS Code
-* Linux Basics
-
----
-
-# 🚀 Featured Projects
-
-## 🔐 AES Image Encryption System
-
-Developed a secure image encryption and decryption application using AES cryptography techniques in Python.
-
-### Features
-
-* AES-based image encryption
-* Secure file processing
-* Image decryption functionality
-* Python automation
-
----
-
-## 🚦 Smart Traffic Management System (IoT)
-
-Built an IoT-based smart traffic management solution focused on optimizing traffic flow and improving urban transportation systems.
-
-### Technologies Used
-
-* Python
-* IoT Concepts
-* Automation Logic
-* Data Processing
-
----
-
-## 🎮 Reinforcement Learning with OpenAI Gym
-
-Created intelligent agents capable of learning decision-making strategies through reinforcement learning environments.
-
-### Highlights
-
-* Q-Learning implementation
-* AI agent simulations
-* Reward optimization
-* OpenAI Gym integration
-
----
-
-## 🖼️ 3D Object Tracking System
-
-Designed a real-time object detection and tracking system using Python and computer vision concepts.
-
-### Features
-
-* Real-time tracking
-* Motion detection
-* Object monitoring
-* Performance optimization
-
----
-
-# 💼 Professional Experience
-
-## 📌 Data Scientist — Telyport
-
-* Worked on data-driven problem-solving and analytics solutions
-* Contributed to software and data analysis tasks
-* Improved understanding of real-world data science workflows
-
----
-
-## 📌 Data Science Intern — Rubixe
-
-📅 Started: June 24, 2024
-
-### Responsibilities
-
-* Worked on analytics and machine learning tasks
-* Assisted in data processing and visualization
-* Participated in IoT and automation-related projects
-* Improved practical experience in Python and Data Science
-
----
-
-# 🌱 Currently Learning
-
-* ☁️ AWS Cloud Fundamentals
-* 🚀 MLOps & Model Deployment
-* 🧠 Advanced Machine Learning Techniques
-* 📈 Data Engineering Concepts
-* 🔥 AI Application Development
-
----
-
-# 🎯 Career Interests
-
-* Data Analyst Roles
-* Data Scientist Roles
-* Python Developer Positions
-* Machine Learning Engineer Roles
-* Software Analyst Opportunities
-* AI & Automation Projects
-
----
-
-# 📜 Certifications & Learning
-
-* Machine Learning with Python
-* Data Analytics Training
-* Python Development
-* SQL & Database Learning
-* AI & Automation Concepts
-
----
-
-# 🌍 Languages
-
-* English
-* Telugu
-* Basic French
-
----
-
-# 📫 Connect With Me
-
-* 📧 Email: [sashankreddy2505@gmail.com](mailto:sashankreddy2505@gmail.com)
-* 💼 LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/nadavaluru-sashank-425617270?utm_source=chatgpt.com)
-* 🏆 GitHub: [GitHub Profile](https://github.com/NadavaluruSashank?utm_source=chatgpt.com)
-
----
-
-# ⚡ Personal Strengths
-
-* Problem Solving
-* Quick Learner
-* Team Collaboration
-* Analytical Thinking
-* Adaptability
-* Continuous Learning Mindset
-
----
-
-# 📈 Career Objective
-
-Seeking opportunities where I can apply my analytical, programming, and machine learning skills to solve challenging real-world problems while continuously growing as a technology professional.
-
----
-
-> ### 🚀 “Driven by Data. Passionate About Innovation. Focused on Building Real-World Solutions.”
+The full write-up, including background on AES and results, is in [`IMAGE_ENCRYPTION_AND_DECRYPTION_USING_AE.pdf`](Image-Encryption-using-AES-master/IMAGE_ENCRYPTION_AND_DECRYPTION_USING_AE.pdf).
