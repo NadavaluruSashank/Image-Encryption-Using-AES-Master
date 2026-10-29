@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>AES Image Encryption</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
@@ -98,7 +98,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Select Option to Encrypt or decrypt</string>
+       <string>Choose an option: Encrypt or Decrypt</string>
       </property>
      </widget>
     </widget>
@@ -160,7 +160,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Encypt</string>
+       <string>Encrypt</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_3">
@@ -191,7 +191,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>back</string>
+       <string>Back</string>
       </property>
      </widget>
      <widget class="QLabel" name="lbl">
@@ -268,7 +268,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Encypted Image</string>
+       <string>Encrypted Image</string>
       </property>
      </widget>
     </widget>
@@ -353,7 +353,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Decypt an Image</string>
+       <string>Decrypt an Image</string>
       </property>
      </widget>
      <widget class="QGraphicsView" name="graphicsView_2">
@@ -376,7 +376,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>back</string>
+       <string>Back</string>
       </property>
      </widget>
     </widget>
