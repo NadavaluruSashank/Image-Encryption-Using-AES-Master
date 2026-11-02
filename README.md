@@ -1,6 +1,14 @@
 # Image Encryption & Decryption using AES
 
-A Python desktop application that encrypts an image with **AES-256** and restores it exactly on decryption. Built with a PyQt5 GUI so a user can pick an image, enter a key, and get back an encrypted cipher file (or the original image from one).
+A Python desktop application that encrypts an image with **AES-256** and restores it exactly on decryption. Built with a PyQt5 GUI so a user can pick an image, enter a key, and get back an encrypted cipher file (or the original image from one). Bachelor's project.
+
+## Problem statement
+
+Images sent or stored as plain files can be read by anyone who gets the file. The goal was a simple desktop tool that lets a non-technical user protect an image with a password and recover it later without any loss of quality.
+
+## Dataset
+
+None needed: the app works on any image the user selects.
 
 ## How it works
 
@@ -9,6 +17,17 @@ A Python desktop application that encrypts an image with **AES-256** and restore
 3. The data is padded and encrypted in **CBC mode** with a fresh random IV, which is prepended to the ciphertext.
 4. The result is written to `cipher.txt`.
 5. Decryption reads the IV back, decrypts with the same key, removes the padding and writes the original image back out as `decryptedImage.png`, with no loss.
+
+## Architecture
+
+```
+main.py (PyQt5 GUI) -> Encrypter.py -> AESCipher.py (SHA-256 key, AES-256-CBC, random IV) -> cipher.txt
+cipher.txt -> Decrypter.py -> AESCipher.py -> decryptedImage.png
+```
+
+## Results
+
+With the correct key, decryption returns the original file bytes exactly (lossless): the image is Base64-encoded and encrypted as-is, never re-compressed. With a wrong key, decryption fails with an error instead of producing an image. (The output is always saved as `decryptedImage.png`, whatever the original format.)
 
 ## Project structure
 
@@ -35,7 +54,7 @@ pip install pycryptodome pillow pyqt5
 python main.py
 ```
 
-## Possible improvements
+## Limitations and possible improvements
 
 - Switch from CBC to an authenticated mode (AES-GCM) so tampered files are detected.
 - Use a proper key-derivation function (PBKDF2 / scrypt with a salt) instead of a single SHA-256 hash of the password.
@@ -44,3 +63,12 @@ python main.py
 ## Report
 
 The full write-up, including background on AES and results, is in [`IMAGE_ENCRYPTION_AND_DECRYPTION_USING_AE.pdf`](Image-Encryption-using-AES-master/IMAGE_ENCRYPTION_AND_DECRYPTION_USING_AE.pdf).
+
+## Screenshots
+
+No screenshots yet.
+
+## Author
+
+**Nadavaluru Sashank** · Data Scientist · MSc Data Science & AI, DSTI School of Engineering, Paris
+[Portfolio](https://nadavalurusashank.github.io/Portfolio_website/) · [LinkedIn](https://www.linkedin.com/in/sashank-nadavaluru-425617270) · [GitHub](https://github.com/NadavaluruSashank)
